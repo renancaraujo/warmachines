@@ -6,7 +6,7 @@ class Nation {
 
   Nation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json["id"];
+    id = json["ndbId"];
     name = json["name"];
     flag = json["flag"];
 
@@ -24,7 +24,7 @@ class Period {
 
   Period.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json["id"];
+    id = json["ndbId"];
     name = json["name"];
     start = json["id"];
     end = json["end"];
@@ -40,12 +40,11 @@ class Tank {
   String description;
   List<String> photos;
   Nation nation;
-  List<Tank> variants;
   Period period;
 
   Tank.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json["id"];
+    id = json["ndbId"];
     name = json["name"];
     description = json["description"];
 
@@ -61,7 +60,7 @@ class Tank {
 class AllNationsResponse {
   List<Nation> nations;
   AllNationsResponse.fromJson(Map<String, dynamic> json) {
-    List nationsField = json["allNations"] as List;
+    List nationsField = json["nations"] as List;
     nations = nationsField?.map((entry) => Nation.fromJson(entry))?.toList();
   }
 }
@@ -69,6 +68,6 @@ class AllNationsResponse {
 class TankByIdResponse {
   Tank tank;
   TankByIdResponse.fromJson(Map<String, dynamic> json) {
-    tank = Tank.fromJson(json["findTankById"]);
+    tank = Tank.fromJson(json["tank"]);
   }
 }

@@ -206,7 +206,7 @@ class _TankInfoState extends State<_TankInfo>
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(widget.tank.nation.name),
-                            Text("${widget.tank.variants.length} variants")
+                            Text("${widget.tank.period.name}")
                           ],
                         ),
                       ),
