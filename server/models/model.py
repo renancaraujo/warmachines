@@ -12,7 +12,7 @@ class Nation (ndb.Model):
 
 class Tank (ndb.Model):
     name = ndb.StringProperty(required=True)
-    description = ndb.StringProperty(required=False)
+    description = ndb.TextProperty(required=False)
     photos = ndb.StringProperty(required=False,repeated=True)
     nation = ndb.KeyProperty(Nation, required=True)
     period = ndb.KeyProperty(Period, required=False)

@@ -10,7 +10,7 @@ class WarmachinesApi {
   final String _baseURL;
 
   Future<Map<String, dynamic>> query(String query) async {
-    Response response = await _client.get("$_baseURL?query=$query");
+    Response response = await _client.get("$_baseURL?raw=true&query=$query");
     if (200 <= response.statusCode && response.statusCode <= 299) {
       return json.decode(response.body)["data"];
     }
@@ -20,7 +20,7 @@ class WarmachinesApi {
   Future<AllNationsResponse> queryAllNations() async {
     Map<String, dynamic> response = await query("""
     {
-      allNations{
+      nations{
         name
         flag
   
@@ -38,15 +38,11 @@ class WarmachinesApi {
 
   Future<TankByIdResponse> queryTankById(String id) async {
     Map<String, dynamic> response = await query("""
-    {
-    findTankById(id: "${id}") {
+  {
+    tank(id: "$id") {
       name
       description
 
-      variants {
-        name
-        photos
-      }
       nation {
         name
         flag

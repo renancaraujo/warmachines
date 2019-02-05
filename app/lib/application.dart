@@ -7,7 +7,7 @@ import 'package:war_machines/routes/tank/tank_screen.dart';
 class Application {
   Application._internal()
       : router = Router(),
-        api = WarmachinesApi("https://8cf07dcb.ngrok.io/graphql") {
+        api = WarmachinesApi("https://warmachinespython.appspot.com/graphql") {
     _buildRoutes();
   }
 
