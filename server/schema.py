@@ -31,7 +31,7 @@ class Nation(NdbObjectType):
 
 class Query(graphene.ObjectType):
     nations = graphene.List(Nation)
-    tank = graphene.Field(Tank)
+    tank = graphene.Field(Tank, id=graphene.String())
 
     def resolve_nations(self, info, **args):
         return NationModel.query()

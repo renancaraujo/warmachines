@@ -11,6 +11,8 @@ class WarmachinesApi {
 
   Future<Map<String, dynamic>> query(String query) async {
     Response response = await _client.get("$_baseURL?raw=true&query=$query");
+    print(response.statusCode);
+    print("$_baseURL?raw=true&query=$query");
     if (200 <= response.statusCode && response.statusCode <= 299) {
       return json.decode(response.body)["data"];
     }
@@ -25,7 +27,7 @@ class WarmachinesApi {
         flag
   
         tanks {
-            id
+            ndbId
             name
             photos
           }
